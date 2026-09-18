@@ -1,0 +1,19 @@
+# Dependencies are installed separately on each operating system.
+node_modules/
+
+# Astro and Netlify generated output/cache.
+.astro/
+dist/
+.netlify/
+
+# Local logs and environment files.
+*.log
+.env
+.env.*
+!.env.example
+
+# Operating-system and editor files.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
