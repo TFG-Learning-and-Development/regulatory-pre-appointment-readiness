@@ -1,0 +1,12 @@
+---
+const { eyebrow = 'Regulatory Pre-appointment Readiness', title, subtitle } = Astro.props;
+---
+
+<header class="hero">
+  <img src="/images/banners/regulatory-readiness-hero.png" alt="Professionals reviewing governance documents in a financial services office" loading="eager" />
+  <div class="container hero-inner">
+    <div class="hero-kicker" aria-hidden="true"><span>◫</span><span>{eyebrow}</span></div>
+    <h1>{title}</h1>
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+</header>

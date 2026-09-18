@@ -1,0 +1,10 @@
+---
+const { resources = [] } = Astro.props;
+---
+<div class="resource-grid">
+  {resources.map((resource) => resource.href ? (
+    <a class="resource-card focus-ring" href={resource.href} target="_blank" rel="noreferrer"><span>{resource.title}<small>{resource.file}</small></span><span aria-hidden="true">↗</span></a>
+  ) : (
+    <span class="resource-card" aria-disabled="true"><span>{resource.title}<small>{resource.file} — file not supplied</small></span><span aria-hidden="true">□</span></span>
+  ))}
+</div>

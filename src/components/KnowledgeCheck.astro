@@ -1,0 +1,18 @@
+---
+const { id, question, options = [], correctIndex, correctFeedback, incorrectFeedback, label = 'Knowledge Check' } = Astro.props;
+---
+<section class="knowledge-check" data-knowledge-check data-correct-index={correctIndex}>
+  <p class="kc-label">{label}</p>
+  <h3 class="kc-question" id={`${id}-question`}>{question}</h3>
+  <div class="kc-options" role="radiogroup" aria-labelledby={`${id}-question`}>
+    {options.map((option, index) => (
+      <label class="kc-option" data-option>
+        <input type="radio" name={id} value={index} />
+        <span>{option}</span>
+      </label>
+    ))}
+  </div>
+  <div class="kc-actions"><button type="button" class="button" data-check-answer>Check answer</button><button type="button" class="button ghost" data-try-again hidden>Try again</button></div>
+  <div class="kc-feedback correct" role="status" tabindex="-1" data-correct-feedback hidden><p>{correctFeedback}</p></div>
+  <div class="kc-feedback incorrect" role="status" tabindex="-1" data-incorrect-feedback hidden><p>{incorrectFeedback}</p></div>
+</section>

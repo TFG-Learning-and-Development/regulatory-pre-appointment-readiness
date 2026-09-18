@@ -1,0 +1,19 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+import LessonBlocks from '../../components/LessonBlocks.astro';
+import LessonNavigation from '../../components/LessonNavigation.astro';
+import { lessons } from '../../data/course.js';
+import { lessonContent } from '../../data/lessonContent.js';
+
+export function getStaticPaths() {
+  return lessons.map((lesson) => ({ params: { slug: lesson.slug }, props: { lesson } }));
+}
+
+const { lesson } = Astro.props;
+const content = lessonContent[lesson.slug];
+const eyebrow = lesson.conclusion ? 'Course Conclusion' : `Lesson ${lesson.number}`;
+---
+<CourseLayout title={lesson.title} subtitle={content.intro} eyebrow={eyebrow} currentSlug={lesson.slug} completionMode={lesson.conclusion ? 'manual' : 'scroll'}>
+  <LessonBlocks blocks={content.blocks} />
+  {!lesson.conclusion && <div data-lesson-complete-marker><LessonNavigation slug={lesson.slug} /></div>}
+</CourseLayout>

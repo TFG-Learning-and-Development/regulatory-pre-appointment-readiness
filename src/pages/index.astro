@@ -1,0 +1,28 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+import { course, lessons, routeFor } from '../data/course.js';
+---
+<CourseLayout title={course.title} subtitle={course.subtitle} eyebrow="TFG Insure">
+  <section class="course-card section-card">
+    <p class="eyebrow">Home</p>
+    <h2 style="margin-top:.65rem">Course Overview</h2>
+    <p class="lead" style="margin-top:1rem">{course.subtitle}</p>
+    <a class="button focus-ring" href={routeFor(lessons[0].slug)} style="margin-top:1.25rem">Start course</a>
+  </section>
+
+  <section>
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1rem"><h2>Lessons</h2><strong data-home-progress>0%</strong></div>
+    <div class="lesson-list">
+      {lessons.map((lesson) => (
+        <a class="course-card lesson-card focus-ring" href={routeFor(lesson.slug)} data-home-lesson={lesson.slug}>
+          <span>
+            <span class="eyebrow">{lesson.conclusion ? 'Course Conclusion' : `Lesson ${lesson.number}`}</span>
+            <h3 style="margin-top:.3rem">{lesson.title}</h3>
+            <span class="status">✓ Completed</span>
+          </span>
+          <span class="button secondary">{lesson.number === '0' ? 'Start' : 'Open'}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</CourseLayout>

@@ -1,0 +1,11 @@
+---
+import { lessons, routeFor } from '../data/course.js';
+const { slug } = Astro.props;
+const index = lessons.findIndex((lesson) => lesson.slug === slug);
+const previous = index > 0 ? lessons[index - 1] : null;
+const next = index < lessons.length - 1 ? lessons[index + 1] : null;
+---
+<nav class="lesson-footer" aria-label="Lesson navigation">
+  {previous ? <a class="button ghost focus-ring" href={routeFor(previous.slug)}>← Previous lesson</a> : <a class="button ghost focus-ring" href="/">← Course home</a>}
+  {next && <a class="button focus-ring" href={routeFor(next.slug)}>Next lesson →</a>}
+</nav>

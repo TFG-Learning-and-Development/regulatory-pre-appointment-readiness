@@ -1,0 +1,22 @@
+---
+const { title, cards = [] } = Astro.props;
+---
+<section>
+  {title && <h2>{title}</h2>}
+  <div class="flip-grid" style={title ? 'margin-top:1rem' : undefined}>
+    {cards.map((card, index) => (
+      <button class="flip-card focus-ring" type="button" aria-pressed="false" aria-label={`Reveal answer for ${card.front}`} data-flip-card>
+        <span class="flip-card-inner">
+          <span class="flip-face front">
+            <span><span class="flip-prompt">{card.label || 'Select to reveal'}</span><h3 style="margin-top:.55rem">{card.front}</h3>{card.frontText && <p style="margin-top:.75rem">{card.frontText}</p>}</span>
+            <span class="flip-hint">Select to turn card</span>
+          </span>
+          <span class="flip-face back">
+            <span><span class="flip-prompt">{card.backLabel || 'Answer'}</span>{card.backTitle && <h3 style="margin-top:.55rem">{card.backTitle}</h3>}<p style="margin-top:.75rem">{card.back}</p></span>
+            <span class="flip-hint">Select to return</span>
+          </span>
+        </span>
+      </button>
+    ))}
+  </div>
+</section>

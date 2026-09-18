@@ -1,0 +1,36 @@
+---
+import { course, lessons, routeFor } from '../data/course.js';
+const { currentSlug = '' } = Astro.props;
+---
+
+<aside class="sidebar">
+  <div class="brand-row">
+    <a class="brand focus-ring" href="/">
+      <img src="/images/brand/tfg-logo.svg" alt="TFG logo" />
+      <span>{course.title}</span>
+    </a>
+    <button class="menu-toggle focus-ring" type="button" aria-expanded="false" aria-controls="course-menu" data-menu-toggle>
+      <span aria-hidden="true">☰</span><span class="sr-only">Toggle lesson menu</span>
+    </button>
+  </div>
+
+  <div class="sidebar-content" id="course-menu" data-course-menu>
+    <section class="progress-card" aria-label="Course progress">
+      <div class="progress-top"><span>Course Progress</span><span class="progress-value" data-progress-label>0%</span></div>
+      <div class="progress-track" aria-hidden="true"><div class="progress-bar" data-progress-bar></div></div>
+      <div class="progress-meta"><span><strong data-complete-count>0</strong> completed</span><span>{lessons.length} sections</span></div>
+    </section>
+
+    <nav class="lesson-nav" aria-label="Lessons">
+      <a href="/" class:list={["nav-link home-link focus-ring", { active: !currentSlug }]}>
+        <span aria-hidden="true">⌂</span><span>Home</span>
+      </a>
+      {lessons.map((lesson) => (
+        <a href={routeFor(lesson.slug)} class:list={["nav-link focus-ring", { active: currentSlug === lesson.slug }]} data-nav-lesson={lesson.slug} aria-current={currentSlug === lesson.slug ? 'page' : undefined}>
+          <span class="nav-icon" aria-hidden="true"></span>
+          <span class="nav-label"><small>{lesson.conclusion ? 'Conclusion' : `Lesson ${lesson.number}`}</small><strong>{lesson.title}</strong></span>
+        </a>
+      ))}
+    </nav>
+  </div>
+</aside>
