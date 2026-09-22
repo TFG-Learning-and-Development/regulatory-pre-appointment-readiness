@@ -40,7 +40,7 @@ const { blocks = [] } = Astro.props;
   ) : block.type === 'resources' ? (
     <section class="course-card section-card"><h2>{block.title}</h2><div style="margin-top:1rem"><ResourceButtons resources={block.resources} /></div></section>
   ) : block.type === 'video' ? (
-    <section class="course-card section-card"><h2>{block.title}</h2><p class="lead">{block.text}</p><div class="video-placeholder"><div><span class="play" aria-hidden="true">▶</span><strong>{block.title}</strong></div></div></section>
+    <section class="course-card section-card"><h2>{block.title}</h2><p class="lead">{block.text}</p><video class="video-player" controls preload="metadata" playsinline aria-label={block.title}><source src={block.src} type="video/mp4" />Your browser does not support HTML video.</video></section>
   ) : block.type === 'images' ? (
     <div class="image-pair">{block.images.map((image) => <figure class="media-frame" style="margin:0"><InstructionalImage src={image.src} alt={image.alt} /><figcaption class="media-caption">{image.caption}</figcaption></figure>)}</div>
   ) : block.type === 'image-example' ? (

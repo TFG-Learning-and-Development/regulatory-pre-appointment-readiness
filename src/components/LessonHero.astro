@@ -1,5 +1,5 @@
 ---
-const { eyebrow = 'Regulatory Pre-appointment Readiness', title, subtitle } = Astro.props;
+const { eyebrow = 'Regulatory Pre-appointment Readiness', title, subtitle, actionHref, actionLabel } = Astro.props;
 ---
 
 <header class="hero">
@@ -8,5 +8,6 @@ const { eyebrow = 'Regulatory Pre-appointment Readiness', title, subtitle } = As
     <div class="hero-kicker" aria-hidden="true"><span>◫</span><span>{eyebrow}</span></div>
     <h1>{title}</h1>
     {subtitle && <p>{subtitle}</p>}
+    {actionHref && actionLabel && <a class="button hero-action focus-ring" href={actionHref}>{actionLabel}</a>}
   </div>
 </header>

@@ -2,12 +2,11 @@
 import CourseLayout from '../layouts/CourseLayout.astro';
 import { course, lessons, routeFor } from '../data/course.js';
 ---
-<CourseLayout title={course.title} subtitle={course.subtitle} eyebrow="TFG Insure">
+<CourseLayout title={course.title} subtitle={course.subtitle} eyebrow="TFG Insure" heroActionHref={routeFor(lessons[0].slug)} heroActionLabel="Start course">
   <section class="course-card section-card">
     <p class="eyebrow">Home</p>
     <h2 style="margin-top:.65rem">Course Overview</h2>
-    <p class="lead" style="margin-top:1rem">{course.subtitle}</p>
-    <a class="button focus-ring" href={routeFor(lessons[0].slug)} style="margin-top:1.25rem">Start course</a>
+    <p class="lead" style="margin-top:1rem">As a future Representative or Key Individual, you play an important role in maintaining trust and professionalism within the financial services industry. Before your appointment, it is essential to understand the regulatory responsibilities that help protect Customers, businesses, and the industry as a whole.</p>
   </section>
 
   <section>

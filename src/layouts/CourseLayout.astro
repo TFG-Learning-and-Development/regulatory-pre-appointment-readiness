@@ -3,7 +3,7 @@ import CourseSidebar from '../components/CourseSidebar.astro';
 import LessonHero from '../components/LessonHero.astro';
 import ImageLightbox from '../components/ImageLightbox.astro';
 import '../styles/global.css';
-const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll' } = Astro.props;
+const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll', heroActionHref, heroActionLabel } = Astro.props;
 ---
 <!doctype html>
 <html lang="en" data-current-lesson={currentSlug} data-completion-mode={completionMode}>
@@ -18,7 +18,7 @@ const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll' } 
     <div class="shell">
       <CourseSidebar currentSlug={currentSlug} />
       <main class="course-main">
-        <LessonHero title={title} subtitle={subtitle} eyebrow={eyebrow} />
+        <LessonHero title={title} subtitle={subtitle} eyebrow={eyebrow} actionHref={heroActionHref} actionLabel={heroActionLabel} />
         <div class="container content-stack"><slot /></div>
       </main>
     </div>
