@@ -1,17 +1,12 @@
 ---
-import RichText from './RichText.astro';
-import InstructionalImage from './InstructionalImage.astro';
+import Tabs from './Tabs.astro';
 const { scenarios = [] } = Astro.props;
+const tabs = scenarios.map((scenario) => ({
+  ...scenario,
+  label: scenario.title,
+  title: scenario.title,
+}));
 ---
-<div class="scenario-grid">
-  {scenarios.map((scenario) => (
-    <details class="scenario">
-      <summary><small>Select to explore</small><h3>{scenario.title}</h3></summary>
-      <div class="scenario-body">
-        {scenario.paragraphs?.map((p) => <p><RichText content={p} /></p>)}
-        {scenario.bullets && <ul>{scenario.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}
-        {scenario.images?.map((image) => <div class="media-frame"><InstructionalImage src={image.src} alt={image.alt} /><p class="media-caption">{image.caption}</p></div>)}
-      </div>
-    </details>
-  ))}
+<div class="scenario-tabs" data-scenario-tabs>
+  <Tabs id="conflict-scenarios" tabs={tabs} />
 </div>

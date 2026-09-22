@@ -134,7 +134,7 @@ const changeStructure = await evaluate(`(() => {
   const feeHeading=[...document.querySelectorAll('h2')].find((node)=>node.textContent.trim()==='Understanding Fees');
   const feeCard=feeHeading?.closest('.course-card');
   const example=document.querySelector('.image-example-grid');
-  const scenarioBullets=[...document.querySelectorAll('.scenario-grid li')].map((node)=>node.textContent.trim());
+  const scenarioBullets=[...document.querySelectorAll('[data-scenario-tabs] li')].map((node)=>node.textContent.trim());
   return {
     feeCards:[...document.querySelectorAll('h2')].filter((node)=>node.textContent.trim()==='Understanding Fees').length,
     feeLists:feeCard?.querySelectorAll('ul').length,
