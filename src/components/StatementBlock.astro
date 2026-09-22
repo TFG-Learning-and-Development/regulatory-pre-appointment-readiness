@@ -1,8 +1,9 @@
 ---
+import RichText from './RichText.astro';
 const { title, tone = '', text } = Astro.props;
 ---
 <aside class:list={["statement", tone]}>
   {title && <strong>{title}</strong>}
-  {text && <p>{text}</p>}
+  {text && <p><RichText content={text} /></p>}
   <slot />
 </aside>

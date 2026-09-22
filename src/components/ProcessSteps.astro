@@ -1,11 +1,12 @@
 ---
+import RichText from './RichText.astro';
 const { steps = [] } = Astro.props;
 ---
 <div class="process">
   {steps.map((step, index) => (
     <article class="process-step">
       <span class="step-number" aria-hidden="true">{index + 1}</span>
-      <div><h3>{step.title}</h3>{step.text && <p>{step.text}</p>}{step.bullets && <ul>{step.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}</div>
+      <div><h3>{step.title}</h3>{step.text && <p><RichText content={step.text} /></p>}{step.bullets && <ul>{step.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}</div>
     </article>
   ))}
 </div>

@@ -1,4 +1,5 @@
 ---
+import RichText from './RichText.astro';
 const { items = [] } = Astro.props;
 ---
 <div class="accordion">
@@ -6,9 +7,9 @@ const { items = [] } = Astro.props;
     <details open={item.open || index === 0}>
       <summary>{item.title}</summary>
       <div class="accordion-body">
-        {item.paragraphs?.map((p) => <p>{p}</p>)}
-        {item.bullets && <ul>{item.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
-        {item.paragraphsAfter?.map((p) => <p>{p}</p>)}
+        {item.paragraphs?.map((p) => <p><RichText content={p} /></p>)}
+        {item.bullets && <ul>{item.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}
+        {item.paragraphsAfter?.map((p) => <p><RichText content={p} /></p>)}
       </div>
     </details>
   ))}

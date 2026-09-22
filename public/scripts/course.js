@@ -63,6 +63,33 @@
     });
   });
 
+  const lightbox = document.querySelector('[data-image-lightbox]');
+  if (lightbox) {
+    const lightboxImage = lightbox.querySelector('[data-lightbox-image]');
+    const closeButton = lightbox.querySelector('[data-lightbox-close]');
+    let opener = null;
+    document.querySelectorAll('[data-lightbox-trigger]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        opener = trigger;
+        lightboxImage.src = trigger.dataset.lightboxSrc;
+        lightboxImage.alt = trigger.dataset.lightboxAlt || '';
+        lightbox.showModal();
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      });
+    });
+    closeButton.addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener('close', () => {
+      document.body.style.overflow = '';
+      lightboxImage.removeAttribute('src');
+      const elementToFocus = opener;
+      setTimeout(() => elementToFocus?.focus(), 0);
+    });
+  }
+
   document.querySelectorAll('[data-knowledge-check]').forEach((check) => {
     const correctIndex = Number(check.dataset.correctIndex);
     const options = [...check.querySelectorAll('[data-option]')];

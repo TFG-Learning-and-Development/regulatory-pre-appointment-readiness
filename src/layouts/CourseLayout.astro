@@ -1,6 +1,7 @@
 ---
 import CourseSidebar from '../components/CourseSidebar.astro';
 import LessonHero from '../components/LessonHero.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
 import '../styles/global.css';
 const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll' } = Astro.props;
 ---
@@ -21,6 +22,7 @@ const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll' } 
         <div class="container content-stack"><slot /></div>
       </main>
     </div>
+    <ImageLightbox />
     <script is:inline src="/scripts/course.js"></script>
   </body>
 </html>

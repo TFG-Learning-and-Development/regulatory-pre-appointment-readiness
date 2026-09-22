@@ -1,0 +1,6 @@
+---
+const { content } = Astro.props;
+const isFormatted = content && typeof content === 'object';
+const text = isFormatted ? content.text : content;
+---
+{isFormatted && content.bold ? <strong>{text}</strong> : text}

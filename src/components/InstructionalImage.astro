@@ -1,0 +1,14 @@
+---
+const { src, alt = '' } = Astro.props;
+---
+<button
+  class="instructional-image-trigger focus-ring"
+  type="button"
+  data-lightbox-trigger
+  data-lightbox-src={src}
+  data-lightbox-alt={alt}
+  aria-label={`Enlarge image: ${alt}`}
+>
+  <img src={src} alt={alt} />
+  <span class="image-enlarge-cue" aria-hidden="true">Enlarge</span>
+</button>

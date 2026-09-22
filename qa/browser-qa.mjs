@@ -39,7 +39,7 @@ const evaluate = async (expression) => {
 const navigate = async (path) => {
   const loaded = once('Page.loadEventFired');
   await send('Page.navigate', { url: `${base}${path}` });
-  await loaded;
+  await Promise.race([loaded, new Promise((resolve) => setTimeout(resolve, 2000))]);
   await new Promise((resolve) => setTimeout(resolve, 250));
 };
 
@@ -105,6 +105,85 @@ for (const path of ['/lessons/conflict-of-interest/','/lessons/permissible-finan
   })()`);
 }
 
+const affectedRoutes = [
+  '/lessons/why-this-course-matters/',
+  '/lessons/appointment-readiness/',
+  '/lessons/conflict-of-interest/',
+  '/lessons/permissible-financial-interests/',
+  '/lessons/disclosure-mechanisms/',
+  '/lessons/debarment/',
+  '/lessons/course-conclusion/',
+];
+const responsiveSweep = {};
+for (const width of [375, 768, 1024, 1440]) {
+  responsiveSweep[width] = {};
+  await send('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: width < 768 });
+  for (const path of affectedRoutes) {
+    await navigate(path);
+    responsiveSweep[width][path] = await evaluate(`({
+      viewport: innerWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1
+    })`);
+  }
+}
+
+await send('Emulation.setDeviceMetricsOverride', { width: 1024, height: 900, deviceScaleFactor: 1, mobile: false });
+await navigate('/lessons/permissible-financial-interests/');
+const changeStructure = await evaluate(`(() => {
+  const feeHeading=[...document.querySelectorAll('h2')].find((node)=>node.textContent.trim()==='Understanding Fees');
+  const feeCard=feeHeading?.closest('.course-card');
+  const example=document.querySelector('.image-example-grid');
+  const scenarioBullets=[...document.querySelectorAll('.scenario-grid li')].map((node)=>node.textContent.trim());
+  return {
+    feeCards:[...document.querySelectorAll('h2')].filter((node)=>node.textContent.trim()==='Understanding Fees').length,
+    feeLists:feeCard?.querySelectorAll('ul').length,
+    feeBold:[...feeCard.querySelectorAll('strong')].map((node)=>node.textContent.trim()),
+    exampleColumns:example?.children.length,
+    cureClubSrc:example?.querySelector('img')?.getAttribute('src'),
+    interactionInstruction:document.querySelector('.interaction-instruction strong')?.textContent.trim(),
+    scenarioBulletsHaveStops:scenarioBullets.every((text)=>/[.!?]$/.test(text)),
+    lowercaseCustomerInScenarios:scenarioBullets.some((text)=>/\bcustomer\b/.test(text)),
+  };
+})()`);
+
+const lightboxCount = await evaluate(`document.querySelectorAll('[data-lightbox-trigger]').length`);
+const lightboxOpen = await evaluate(`(() => {
+  const trigger=document.querySelector('[data-lightbox-trigger]');
+  trigger.click();
+  const dialog=document.querySelector('[data-image-lightbox]');
+  return {open:dialog.open, src:dialog.querySelector('[data-lightbox-image]').getAttribute('src'), closeFocused:document.activeElement.matches('[data-lightbox-close]')};
+})()`);
+const closeRestoresFocus = await evaluate(`(async () => {
+  document.querySelector('[data-lightbox-close]').click();
+  await new Promise((resolve)=>setTimeout(resolve,20));
+  return {open:document.querySelector('[data-image-lightbox]').open, triggerFocused:document.activeElement.matches('[data-lightbox-trigger]'), activeElement:document.activeElement.tagName};
+})()`);
+await evaluate(`document.querySelector('[data-lightbox-trigger]').click()`);
+await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27, nativeVirtualKeyCode: 27 });
+await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27, nativeVirtualKeyCode: 27 });
+const escapeCloses = await evaluate(`!document.querySelector('[data-image-lightbox]').open`);
+const backdropCloses = await evaluate(`(() => {
+  document.querySelector('[data-lightbox-trigger]').click();
+  const dialog=document.querySelector('[data-image-lightbox]');
+  dialog.dispatchEvent(new MouseEvent('click',{bubbles:true}));
+  return !dialog.open;
+})()`);
+
+await navigate('/lessons/appointment-readiness/');
+const scenarioLabelRemoved = await evaluate(`![...document.querySelectorAll('.statement strong')].some((node)=>node.textContent.trim()==='Scenario')`);
+
+await navigate('/lessons/disclosure-mechanisms/');
+const vantage = await evaluate(`(() => {
+  const button=[...document.querySelectorAll('[data-tab-button]')].find((node)=>node.textContent.trim()==='Vantage');
+  button.click();
+  const panel=document.getElementById(button.getAttribute('aria-controls'));
+  return {intro:panel.querySelector('.tab-image-grid > div > p')?.textContent.trim(), bullets:panel.querySelectorAll('li').length, imageTrigger:!!panel.querySelector('[data-lightbox-trigger]')};
+})()`);
+
+await navigate('/lessons/conflict-of-interest/');
+const policyLinks = await evaluate(`Promise.all([...document.querySelectorAll('.resource-card[href]')].map(async (link) => ({href:link.getAttribute('href'), status:(await fetch(link.href)).status})))`);
+
 await navigate('/lessons/course-conclusion/');
 const homeLoaded = once('Page.loadEventFired');
 await evaluate(`document.querySelector('[data-finish-course]').click()`);
@@ -112,5 +191,5 @@ await homeLoaded;
 await new Promise((resolve) => setTimeout(resolve, 200));
 const finish = await evaluate(`({path:location.pathname, progress:document.querySelector('[data-home-progress]')?.textContent, state:JSON.parse(localStorage.getItem('tfg-regulatory-readiness-progress-v1'))})`);
 
-console.log(JSON.stringify({ viewports, flip, scrollComplete, tabs, mobileMenu, knowledge, accordion, interactionSweep, finish, errors }, null, 2));
+console.log(JSON.stringify({ viewports, flip, scrollComplete, tabs, mobileMenu, knowledge, accordion, interactionSweep, responsiveSweep, changeStructure, lightboxCount, lightboxOpen, closeRestoresFocus, escapeCloses, backdropCloses, scenarioLabelRemoved, vantage, policyLinks, finish, errors }, null, 2));
 socket.close();

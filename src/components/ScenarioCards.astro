@@ -1,4 +1,6 @@
 ---
+import RichText from './RichText.astro';
+import InstructionalImage from './InstructionalImage.astro';
 const { scenarios = [] } = Astro.props;
 ---
 <div class="scenario-grid">
@@ -6,9 +8,9 @@ const { scenarios = [] } = Astro.props;
     <details class="scenario">
       <summary><small>Select to explore</small><h3>{scenario.title}</h3></summary>
       <div class="scenario-body">
-        {scenario.paragraphs?.map((p) => <p>{p}</p>)}
-        {scenario.bullets && <ul>{scenario.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
-        {scenario.images?.map((image) => <div class="media-frame"><img src={image.src} alt={image.alt} /><p class="media-caption">{image.caption}</p></div>)}
+        {scenario.paragraphs?.map((p) => <p><RichText content={p} /></p>)}
+        {scenario.bullets && <ul>{scenario.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}
+        {scenario.images?.map((image) => <div class="media-frame"><InstructionalImage src={image.src} alt={image.alt} /><p class="media-caption">{image.caption}</p></div>)}
       </div>
     </details>
   ))}

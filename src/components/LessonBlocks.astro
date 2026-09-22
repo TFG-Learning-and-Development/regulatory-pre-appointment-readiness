@@ -7,6 +7,8 @@ import ProcessSteps from './ProcessSteps.astro';
 import KnowledgeCheck from './KnowledgeCheck.astro';
 import ResourceButtons from './ResourceButtons.astro';
 import ScenarioCards from './ScenarioCards.astro';
+import RichText from './RichText.astro';
+import InstructionalImage from './InstructionalImage.astro';
 const { blocks = [] } = Astro.props;
 ---
 
@@ -15,11 +17,13 @@ const { blocks = [] } = Astro.props;
     <section class="course-card section-card">
       {block.eyebrow && <p class="eyebrow">{block.eyebrow}</p>}
       {block.title && <h2 style={block.eyebrow ? 'margin-top:.55rem' : undefined}>{block.title}</h2>}
-      {block.paragraphs?.map((paragraph) => <p class="lead" style={block.title || block.eyebrow ? 'margin-top:1rem' : undefined}>{paragraph}</p>)}
+      {block.paragraphs?.map((paragraph) => <p class="lead" style={block.title || block.eyebrow ? 'margin-top:1rem' : undefined}><RichText content={paragraph} /></p>)}
       {block.statement && <StatementBlock text={block.statement} />}
-      {block.bullets && <ul>{block.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
-      {block.checklist && <ul class="checklist-grid" style="margin-top:1rem">{block.checklist.map((item) => <li>{item}</li>)}</ul>}
-      {block.closing && <p class="lead" style="margin-top:1rem">{block.closing}</p>}
+      {block.bullets && <ul>{block.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}
+      {block.checklist && <ul class="checklist-grid" style="margin-top:1rem">{block.checklist.map((item) => <li><RichText content={item} /></li>)}</ul>}
+      {block.closing && <p class="lead" style="margin-top:1rem"><RichText content={block.closing} /></p>}
+      {block.secondaryBullets && <ul>{block.secondaryBullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}
+      {block.final && <p class="lead" style="margin-top:1rem"><RichText content={block.final} /></p>}
     </section>
   ) : block.type === 'statement' ? (
     <StatementBlock title={block.title} text={block.text} tone={block.tone}>{block.bullets && <ul>{block.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}</StatementBlock>
@@ -38,17 +42,30 @@ const { blocks = [] } = Astro.props;
   ) : block.type === 'video' ? (
     <section class="course-card section-card"><h2>{block.title}</h2><p class="lead">{block.text}</p><div class="video-placeholder"><div><span class="play" aria-hidden="true">▶</span><strong>{block.title}</strong></div></div></section>
   ) : block.type === 'images' ? (
-    <div class="image-pair">{block.images.map((image) => <figure class="media-frame" style="margin:0"><img src={image.src} alt={image.alt} /><figcaption class="media-caption">{image.caption}</figcaption></figure>)}</div>
+    <div class="image-pair">{block.images.map((image) => <figure class="media-frame" style="margin:0"><InstructionalImage src={image.src} alt={image.alt} /><figcaption class="media-caption">{image.caption}</figcaption></figure>)}</div>
+  ) : block.type === 'image-example' ? (
+    <section class="course-card section-card image-example">
+      <h2>{block.title}</h2>
+      <div class="image-example-grid">
+        <figure class="media-frame" style="margin:0"><InstructionalImage src={block.image.src} alt={block.image.alt} /><figcaption class="media-caption">{block.image.caption}</figcaption></figure>
+        <div class="image-example-copy">
+          {block.paragraphs?.map((paragraph) => <p class="lead"><RichText content={paragraph} /></p>)}
+          {block.statement && <StatementBlock text={block.statement} />}
+        </div>
+      </div>
+    </section>
+  ) : block.type === 'interaction-instruction' ? (
+    <p class="interaction-instruction"><strong>{block.text}</strong></p>
   ) : block.type === 'comparison' ? (
-    <div class="comparison">{block.items.map((item) => <article><h3>{item.title}</h3>{item.paragraphs.map((paragraph) => <p style="margin-top:.8rem">{paragraph}</p>)}</article>)}</div>
+    <div class="comparison">{block.items.map((item) => <article><h3>{item.title}</h3>{item.paragraphs.map((paragraph) => <p style="margin-top:.8rem"><RichText content={paragraph} /></p>)}</article>)}</div>
   ) : block.type === 'scenarios' ? (
     <ScenarioCards scenarios={block.scenarios} />
   ) : block.type === 'reflection-options' ? (
     <section class="course-card section-card"><p class="eyebrow">{block.title}</p><h2 style="margin-top:.6rem">{block.question}</h2><ol style="margin-top:1rem">{block.options.map((option) => <li>{option}</li>)}</ol></section>
   ) : block.type === 'reflection' ? (
-    <section class="course-card section-card" style="border-top:5px solid var(--red)"><p class="eyebrow">{block.title}</p><h2 style="margin-top:.7rem">{block.text}</h2></section>
+    <section class="course-card section-card" style="border-top:5px solid var(--color-accent)"><p class="eyebrow">{block.title}</p><h2 style="margin-top:.7rem">{block.text}</h2></section>
   ) : block.type === 'transition' ? (
-    <section class="course-card section-card">{block.paragraphs.map((paragraph, index) => <p class={index === 0 ? 'lead' : undefined}>{paragraph}</p>)}</section>
+    <section class="course-card section-card">{block.paragraphs.map((paragraph, index) => <p class={index === 0 ? 'lead' : undefined}><RichText content={paragraph} /></p>)}</section>
   ) : block.type === 'finish' ? (
     <div><a class="button focus-ring" href="/" data-finish-course>Finish course</a></div>
   ) : null

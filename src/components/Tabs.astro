@@ -1,6 +1,8 @@
 ---
 import StatementBlock from './StatementBlock.astro';
 import FlipCards from './FlipCards.astro';
+import RichText from './RichText.astro';
+import InstructionalImage from './InstructionalImage.astro';
 const { id, tabs = [] } = Astro.props;
 ---
 <section class="tabs" data-tabs>
@@ -17,22 +19,24 @@ const { id, tabs = [] } = Astro.props;
         <div class="tab-image-grid">
           <div>
             {tab.title && <h3>{tab.title}</h3>}
-            {tab.paragraphs?.map((p) => <p style="margin-top:1rem">{p}</p>)}
-            {tab.bullets && <ul>{tab.bullets.map((item) => <li>{item}</li>)}</ul>}
+            {tab.intro && <p style="margin-top:1rem"><RichText content={tab.intro} /></p>}
+            {tab.paragraphs?.map((p) => <p style="margin-top:1rem"><RichText content={p} /></p>)}
+            {tab.bullets && <ul>{tab.bullets.map((item) => <li><RichText content={item} /></li>)}</ul>}
             {tab.statement && <StatementBlock title={tab.statement.title} text={tab.statement.text} tone={tab.statement.tone} />}
           </div>
-          <div class="media-frame"><img src={tab.image.src} alt={tab.image.alt} /><p class="media-caption">{tab.image.caption}</p></div>
+          <div class="media-frame"><InstructionalImage src={tab.image.src} alt={tab.image.alt} /><p class="media-caption">{tab.image.caption}</p></div>
         </div>
       ) : (
         <>
           {tab.title && <h3>{tab.title}</h3>}
-          {tab.paragraphs?.map((p) => <p>{p}</p>)}
-          {tab.bullets && <ul>{tab.bullets.map((item) => <li>{item}</li>)}</ul>}
+          {tab.intro && <p><RichText content={tab.intro} /></p>}
+          {tab.paragraphs?.map((p) => <p><RichText content={p} /></p>)}
+          {tab.bullets && <ul>{tab.bullets.map((item) => <li><RichText content={item} /></li>)}</ul>}
           {tab.statement && <StatementBlock title={tab.statement.title} text={tab.statement.text} tone={tab.statement.tone} />}
-          {tab.images && <div class="image-pair">{tab.images.map((image) => <div class="media-frame"><img src={image.src} alt={image.alt} /><p class="media-caption">{image.caption}</p></div>)}</div>}
+          {tab.images && <div class="image-pair">{tab.images.map((image) => <div class="media-frame"><InstructionalImage src={image.src} alt={image.alt} /><p class="media-caption">{image.caption}</p></div>)}</div>}
           {tab.flipCards && <FlipCards cards={tab.flipCards} />}
           {tab.afterTitle && <h3>{tab.afterTitle}</h3>}
-          {tab.afterParagraphs?.map((p) => <p>{p}</p>)}
+          {tab.afterParagraphs?.map((p) => <p><RichText content={p} /></p>)}
         </>
       )}
     </div>
