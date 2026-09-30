@@ -1,6 +1,6 @@
 (() => {
   const STORAGE_KEY = 'tfg-regulatory-readiness-progress-v1';
-  const lessonIds = ['why-this-course-matters','appointment-readiness','conflict-of-interest','permissible-financial-interests','disclosure-mechanisms','debarment','course-conclusion'];
+  const lessonIds = ['why-this-course-matters','understanding-tfg-insure-and-your-regulatory-responsibilities','appointment-readiness','conflict-of-interest','permissible-financial-interests','disclosure-mechanisms','debarment','course-conclusion'];
 
   const readState = () => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { completed: [] }; }

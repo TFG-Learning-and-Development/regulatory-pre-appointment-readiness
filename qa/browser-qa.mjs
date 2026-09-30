@@ -107,6 +107,7 @@ for (const path of ['/lessons/conflict-of-interest/','/lessons/permissible-finan
 
 const affectedRoutes = [
   '/lessons/why-this-course-matters/',
+  '/lessons/understanding-tfg-insure-and-your-regulatory-responsibilities/',
   '/lessons/appointment-readiness/',
   '/lessons/conflict-of-interest/',
   '/lessons/permissible-financial-interests/',

@@ -20,8 +20,124 @@ export const lessonContent = {
       { type: 'transition', paragraphs: [
         `You now understand why appointment readiness matters and how it helps protect Customers, your career, and TFG Insure.`,
         `Next, you will explore the different responsibilities of Representatives and Key Individuals. As you continue, think about the role you are preparing for and the actions you will need to take to work responsibly in a regulated financial services environment.`,
-        `Select “Next” to continue to Lesson 1: Appointment Readiness: Representatives and Key Individuals.`,
+        `Select “Next” to continue to Lesson 1: Understanding TFG Insure and Your Regulatory Responsibilities`,
       ] },
+    ],
+  },
+
+  'understanding-tfg-insure-and-your-regulatory-responsibilities': {
+    intro: `Before you can perform the responsibilities of a Representative or Key Individual, you need to understand the environment in which TFG Insure operates.`,
+    blocks: [
+      { type: 'section', paragraphs: [`Before you can perform the responsibilities of a Representative or Key Individual, you need to understand the environment in which TFG Insure operates.`] },
+      { type: 'section', title: 'TFG Insure as a Financial Services Provider', paragraphs: [
+        `TFG Insure, referred to as TFG, is a licensed Category I Financial Services Provider (FSP). TFG is authorised to provide intermediary services but is not authorised to give financial advice.`,
+        `This means that all Customer engagements must follow approved scripts, processes and authorised channels.`,
+        `TFG operates under a binder arrangement with Guardrisk, the insurer. Under this arrangement, TFG performs certain distribution and administrative functions but does not carry the underwriting risk.`,
+      ] },
+      { type: 'section', title: 'Advice vs. Intermediary Services', paragraphs: [`When speaking to customers about TFG Insure products, it is important to understand the difference between advice and intermediary services.`] },
+      { type: 'comparison', items: [
+        { title: 'What is Advice?', paragraphs: [`Advice is when you make a recommendation, suggestion, or give an opinion that could influence a Customer's decision about a financial product.`, { text: `Examples of advice include:`, bold: true }], bullets: [
+          `Telling a customer which product they should choose`,
+          `Suggesting that one product is better than another`,
+          `Sharing your opinion about whether a product is suitable for a customer`,
+          `Recommending a product based on the Customer's circumstances`,
+        ], closing: `Only authorised individuals may provide financial advice, and additional regulatory requirements apply when doing so.` },
+        { title: 'What are Intermediary Services?', paragraphs: [`Intermediary services involve providing factual information and helping Customers through the product process without influencing their decision.`, { text: `Examples include:`, bold: true }], bullets: [
+          `Explaining product features, benefits, costs, and exclusions using approved scripts`,
+          `Answering factual questions about a product`,
+          `Assisting Customers with applications or purchases`,
+          `Providing information that helps Customers make their own informed decision`,
+        ], closing: `Your role is to provide clear, accurate information, not to tell Customers what they should do.` },
+      ] },
+      { type: 'section', title: 'The TFG Insure Approach', paragraphs: [
+        `TFG Insure operates on a non-advice model. This means that employees may only provide factual product information and must never recommend, suggest, or express an opinion about what a Customer should choose.`,
+        `All Customer interactions must follow approved scripts and materials. Even informal comments, personal views, or sharing personal experiences could be interpreted as advice and may result in an unauthorised financial service being provided.`,
+      ] },
+      { type: 'section', title: 'Your Responsibilities' },
+      { type: 'comparison', items: [
+        { title: 'To remain compliant, always:', bullets: [
+          `Follow approved scripts and materials exactly as provided`,
+          `Provide accurate, factual information only`,
+          `Allow customers to make their own decisions`,
+          `Explain product information without influencing the customer's choice`,
+        ] },
+        { title: 'Never:', bullets: [
+          `Recommend a product to a customer`,
+          `Tell a Customer what you think they should do`,
+          `Share personal opinions or experiences that could influence a decision`,
+          `Depart from approved scripts or wording`,
+        ] },
+      ] },
+      { type: 'section', title: 'Why This Matters', paragraphs: [`Maintaining the distinction between advice and intermediary services helps protect customers, supports fair outcomes, and ensures that TFG Insure operates within the requirements of the FAIS Act and its licensing conditions.`] },
+      { type: 'section', title: 'Treating Customers Fairly (TCF)', paragraphs: [
+        { text: `Understanding the six TCF outcomes and your role in achieving them.`, bold: true },
+        `In this lesson, you'll explore the six TCF outcomes, see what they look like in practice, and discover how your role contributes to creating fair Customer outcomes.`,
+      ] },
+      { type: 'section', title: 'What is TCF?', paragraphs: [`Before exploring the six TCF outcomes, watch this short video to learn:`], bullets: [
+        `What TCF stands for`,
+        `Why TCF exists`,
+        `Why it matters`,
+        `How it impacts Customers`,
+      ] },
+      { type: 'video', title: 'Video 2: Treating Customers Fairly (TCF)', text: `Treating Customers Fairly (TCF)`, src: '/videos/treating-customers-fairly.mp4' },
+      { type: 'section', title: 'The Six TCF Outcomes', paragraphs: [
+        `Treating Customers Fairly (TCF) is brought to life through six outcomes that describe what fair treatment looks like from a Customer's perspective.`,
+        { text: `Take a moment to review each outcome below and think about how you can support fair Customer outcomes in your role.`, bold: true },
+      ] },
+      { type: 'tcf-outcomes', outcomes: [
+        `TCF Outcome 1 – Customers must feel confident that they are dealing with an institution where TCF is at the core of their culture.`,
+        `TCF Outcome 2 – Products and services in the retail market which are sold and marketed are designed according to the needs of the Customers identified and targeted accordingly.`,
+        `TCF Outcome 3 – Customers are provided with clear information and kept appropriately informed before, during and after point of sale.`,
+        `TCF Outcome 4 – Advice is suitable and according to the Customer’s circumstances.`,
+        `TCF Outcome 5 – Service is of an acceptable standard, and products perform as Customers have been led to expect.`,
+        `TCF Outcome 6 – Customers do not face unreasonable post-sale barriers when they want to change a product, switch providers, submit a claim or make a complaint.`,
+      ] },
+      { type: 'section', title: 'What does this look like in practice?', paragraphs: [
+        `Customers should not be misled by marketing material and should understand what they are buying.`,
+        `After purchasing an insurance product Customers should have easily accessible channel to lodge complaints and make a claim.`,
+      ] },
+      { type: 'section', title: 'Fit and Proper Requirements' },
+      { type: 'section', title: 'What Is Fit and Proper?', paragraphs: [
+        `Fit and Proper requirements are the minimum standards that Representatives, Key Individuals and Financial Services Providers must meet to render financial services.`,
+        `These requirements help ensure that Customers receive financial services from individuals who have the appropriate:`,
+      ], bullets: [`Honesty and integrity.`, `Competence and knowledge.`, `Qualifications.`, `Operational ability.`, `Commitment to ongoing professional development.`] },
+      { type: 'section', title: 'Why Is Fit and Proper Important?', paragraphs: [`Maintaining your Fit and Proper status:`], bullets: [
+        `Protects Customers.`,
+        `Promotes confidence in the financial services industry.`,
+        `Supports fair Customer outcomes.`,
+        `Helps ensure compliance with regulatory requirements.`,
+        `Enables Representatives to perform their roles lawfully.`,
+      ], closing: `Failure to maintain Fit and Proper status may restrict or prevent a Representative from rendering financial services. It may also affect a Key Individual’s eligibility to continue serving in that role.` },
+      { type: 'section', title: 'Your Responsibilities', paragraphs: [`As a Representative or Key Individual, you must:`], bullets: [
+        `Remain honest and act with integrity.`,
+        `Complete all required training and assessments.`,
+        `Maintain the qualifications and competency requirements applicable to your role.`,
+        `Complete Continuous Professional Development (CPD) activities where required.`,
+        `Immediately disclose any event that may affect your Fit and Proper status.`,
+        `Cooperate with compliance monitoring and competency assessments.`,
+      ] },
+      { type: 'section', title: 'Events That May Affect Your Fit and Proper Status', paragraphs: [`You must notify management or Legal Compliance as soon as possible if you:`], bullets: [
+        `Are charged with or convicted of a serious offence.`,
+        `Become subject to regulatory action.`,
+        `Are found guilty of dishonesty, fraud, theft, forgery, corruption or similar misconduct.`,
+        `Provide false or misleading information to TFG or a regulator.`,
+        `No longer meet the competency or qualification requirements applicable to your role.`,
+        `Become debarred or subject to debarment proceedings.`,
+      ], closing: `Failing to disclose relevant information may itself raise concerns about your Fit and Proper status.` },
+      { type: 'section', title: 'Maintaining Your Competence', paragraphs: [`Fit and Proper is not a once-off requirement.`, `Representatives and Key Individuals are expected to:`], bullets: [
+        `Keep their knowledge current.`,
+        `Stay informed about legislative and regulatory changes.`,
+        `Attend mandatory training.`,
+        `Complete required CPD activities.`,
+        `Seek guidance when uncertain about regulatory requirements.`,
+      ] },
+      { type: 'section', title: 'Annual Fit and Proper Declaration', paragraphs: [
+        `You will be expected to complete an annual declaration confirming that you continue to maintain your Fit and Proper status.`,
+        `The annual declaration provides an additional opportunity to disclose relevant information. However, it does not replace your responsibility to report an event when it occurs.`,
+        `If something happens that may affect your Fit and Proper status, you must disclose it to your line manager or Legal Compliance as soon as possible.`,
+        `Do not wait for the annual declaration. Keep an eye out for the next annual declaration opportunity.`,
+      ] },
+      { type: 'transition', paragraphs: [{ text: `Select “Next” to continue to Lesson 2: Appointment Readiness: Representatives and Key Individuals.`, bold: true }] },
     ],
   },
 
@@ -32,7 +148,7 @@ export const lessonContent = {
       { type: 'tabs', id: 'roles', tabs: [
         { label: 'If you are preparing to be a Representative', title: 'If you are preparing to be a Representative', paragraphs: [`You are authorised to render financial services on behalf of TFG Insure, within the scope of its licence and the approved product categories. In practice, this means you must know what you may do, what you may not do, and when to escalate.`, { text: `Responsibilities`, bold: true }], bullets: [
           `Act honestly, fairly and with due care.`, `Treat Customers fairly and support positive outcomes.`, `Give factual, accurate information and remain within the non-advice model.`, `Follow approved scripts, processes and procedures.`, `Complete required training and assessments.`, `Disclose interests and potential conflicts.`, `Keep required records and escalate concerns, complaints, incidents or compliance risks.`,
-        ], statement: { text: `Imagine a Customer asks you to recommend the “best” option for their personal circumstances. What should you do? Your answer should reflect the non-advice model and the approved escalation process.` } },
+        ], statement: { text: `Imagine a Customer asks you to recommend the “best” option for their personal circumstances. What should you do? You should let the customer know that while you are not authorised to make a recommendation, you can provide them with the features and benefits of the product(s) so that they may then make an informed decision.` } },
         { label: 'If you are preparing to be a Key Individual', title: 'If you are preparing to be a Key Individual', paragraphs: [`You are accountable for managing and overseeing the financial services activities under your responsibility. Your role is to make sure the right people, controls and support are in place.`, { text: `Responsibilities`, bold: true }], bullets: [
           `Oversee financial services activities.`, `Supervise, train and support Representatives.`, `Promote ethical conduct and compliance.`, `Monitor adherence to FAIS and regulatory requirements.`, `Ensure only authorised and competent people render financial services.`, `Escalate material compliance and governance concerns.`, `Support Treating Customers Fairly outcomes.`, `Ensure effective risk controls are in place.`,
         ] },
@@ -41,7 +157,7 @@ export const lessonContent = {
       { type: 'transition', paragraphs: [
         `You have explored the responsibilities of Representatives and Key Individuals and considered how each role supports compliant financial services and fair Customer outcomes. Knowing your responsibilities is an important first step. You must also be able to recognise situations that could affect, or appear to affect, your ability to act fairly and objectively.`,
         `Next, you will learn how to identify and disclose interests that may create an actual, potential, or perceived conflict of interest.`,
-        { text: `Select “Next” to continue to Lesson 2: Conflict of Interest and Disclosure of Interest.`, bold: true },
+        { text: `Select “Next” to continue to Lesson 3: Conflict of Interest and Disclosure of Interest.`, bold: true },
       ] },
     ],
   },
@@ -50,7 +166,7 @@ export const lessonContent = {
     intro: `Now it's time to take a closer look at the regulatory requirements and standards that support these responsibilities.`,
     blocks: [
       { type: 'section', paragraphs: [
-        `In Lesson 1, you explored your role and responsibilities as a Representative or Key Individual and gained an understanding of the accountability that comes with working in a regulated financial services environment.`,
+        `In Lesson 2, you explored your role and responsibilities as a Representative or Key Individual and gained an understanding of the accountability that comes with working in a regulated financial services environment.`,
         `Now it's time to take a closer look at the regulatory requirements and standards that support these responsibilities.`,
         `As you work through this lesson, think about how these requirements apply to the decisions you make every day and how they help ensure fair Customer outcomes.`,
         `Let's get started.`,
@@ -107,7 +223,7 @@ export const lessonContent = {
       { type: 'transition', paragraphs: [
         `You now understand that an interest does not automatically create a conflict of interest. However, any interest that could influence, or appear to influence, decision-making must be recognised and disclosed through the appropriate process.`,
         `Next, you will take a closer look at financial interests. You will explore what may be permissible, which thresholds apply, and your disclosure responsibilities when you receive a gift, benefit, fee, or other financial interest.`,
-        { text: `Select “Next” to continue to Lesson 3: Permissible Financial Interests and Your Disclosure Responsibilities.`, bold: true },
+        { text: `Select “Next” to continue to Lesson 4: Permissible Financial Interests and Your Disclosure Responsibilities.`, bold: true },
       ] },
     ],
   },
@@ -115,11 +231,15 @@ export const lessonContent = {
   'permissible-financial-interests': {
     intro: `In this lesson, you'll focus on financial interests, including what may be accepted, what must be disclosed, and how these requirements help promote fair, ethical, and compliant business practices.`,
     blocks: [
-      { type: 'section', paragraphs: [`In Lesson 2, you explored conflicts of interest and learned why identifying, disclosing, and managing them is important.`, `Now, you'll continue your journey through the regulatory requirements and standards that apply to Representatives and Key Individuals.`, `In this lesson, you'll focus on financial interests, including what may be accepted, what must be disclosed, and how these requirements help promote fair, ethical, and compliant business practices.`] },
+      { type: 'section', paragraphs: [`In Lesson 3, you explored conflicts of interest and learned why identifying, disclosing, and managing them is important.`, `Now, you'll continue your journey through the regulatory requirements and standards that apply to Representatives and Key Individuals.`, `In this lesson, you'll focus on financial interests, including what may be accepted, what must be disclosed, and how these requirements help promote fair, ethical, and compliant business practices.`] },
       { type: 'statement', text: `Not every financial interest is a problem. The important thing is to make sure it is allowed, disclosed when required, and managed properly. This helps protect fair outcomes for Customers and supports compliance.` },
-      { type: 'section', title: 'Commission', paragraphs: [{ text: `Question: What could go wrong if commission is based only on the number of sales?`, bold: true }, `Commission is a permissible financial interest. However, it cannot be based only on how many products are sold.`, `When commission rewards quantity alone, there is a risk that sales may be prioritised over the Customer's needs. This can lead to poor Customer outcomes and increased compliance risk.`, { text: `To support fair outcomes, commission should consider both:`, bold: true }], bullets: [`The number of sales made.`, `The quality of the Customer interaction.`], closing: `Quality measures may include fair Customer outcomes, compliance with the FRG Minimum Service Standards, and adherence to the Code of Conduct. Approved disclosures and quality monitoring through CallBi help ensure these standards are met.` },
+      { type: 'section', title: 'Commission', paragraphs: [{ text: `Question: What could go wrong if commission is based only on the number of sales?`, bold: true }, `Commission is a permissible financial interest. However, it cannot be based only on how many products are sold, only.`, `When commission rewards quantity alone, there is a risk that sales may be prioritised over the Customer's needs. This can lead to poor Customer outcomes and increased compliance risk.`, { text: `To support fair outcomes, commission should consider both:`, bold: true }], bullets: [`The number of sales made.`, `The quality of the Customer interaction.`], closing: `Quality measures may include fair Customer outcomes, compliance with the FRG Minimum Service Standards, and adherence to the Code of Conduct. Approved disclosures and quality monitoring through CallBi help ensure these standards are met.` },
       { type: 'statement', title: 'Financial interests are not limited to commission.', text: `While commission is one example of a permissible financial interest, Financial Services Providers may also charge certain fees for services performed. These fees are subject to specific rules and must always support fair Customer outcomes.`, tone: 'teal' },
-      { type: 'section', title: 'Understanding Fees', paragraphs: [`Financial Services Providers may charge a range of fees depending on the services being performed.`, { text: `Examples include:`, bold: true }], bullets: [`Binder fees`, `Customer service fees`, `Product supplier service fees`, `Training and data analytics fees`], closing: { text: `However, all fees must follow important principles:`, bold: true }, secondaryBullets: [`Must be reasonable`, `Must be proportionate to the service provided`, `Must not duplicate payment for the same service`, `Must not negatively affect fair Customer outcomes`, `Any related conflicts of interest must be managed appropriately`], final: `Customers must also agree in writing to any applicable service fees and retain the right to cancel these services.` },
+      { type: 'section', title: 'Understanding Fees', paragraphs: [`Financial Services Providers may charge a range of fees depending on the services being performed.`, { text: `Examples include:`, bold: true }], bullets: [
+        `Binder fees`,
+        { text: `Customer service fees`, support: `(Customers must agree in writing to the amount to be paid (to be agreed as a defined fee in rands) frequency, payment method and services for which the Customer is paying.)` },
+        `General service fees such as training and analytics`,
+      ], closing: { text: `However, all fees must follow important principles:`, bold: true }, secondaryBullets: [`Must be reasonable`, `Must be proportionate to the service provided`, `Must not duplicate payment for the same service`, `Must not negatively affect fair Customer outcomes`, `Any related conflicts of interest must be managed appropriately`] },
       { type: 'image-example', title: `Let's look at an example:`, image: { src: '/images/storyboard/image2.png', alt: 'CureClub monthly debit order membership form showing a R110 claim support service', caption: 'CureClub monthly debit order membership form' }, paragraphs: [`For example, R 115 for claims support to be paid via debit order on the 1st of every month - or some version of this language incorporated into the t&cs.`], statement: `NOTE! Customers must be able to cancel payment for these services at their discretion.` },
       { type: 'interaction-instruction', text: 'Select section to reveal more information.' },
       { type: 'accordion', items: [{ title: 'Apply it: If a low-cost policy attracts a very high administration fee, what should you question?', paragraphs: [`Consider whether the fee is reasonable and proportionate to the service being provided.`] }] },
@@ -128,6 +248,7 @@ export const lessonContent = {
         { title: 'Immaterial Financial Interests', paragraphs: [`Financial interests below R1 000.`, `May include gifts received during the year (which all amount to R750 rand without having a conflict of interest).`, `You may also receive 1 item to the value of R750 without this creating a conflict of interest.`] },
         { title: 'Material Financial Interests', paragraphs: [`Exceed R1 000 either as a single item or cumulatively during the year.`, `Present a higher risk of creating a conflict of interest.`, `Even where an interest is considered immaterial, all gifts must still be disclosed in accordance with TFG's Gift Policy.`] },
       ] },
+      { type: 'statement', text: `NOTE! This applies to the same provider – so for example multiple gifts from the same provider can add up to 1000 rand over the course of the year making it a material financial interest.`, tone: 'gold' },
       { type: 'section', title: 'Remember what your responsibilities are when a conflict arises:' },
       { type: 'process', compact: true, steps: [{ title: 'Recognise the Interest' }, { title: 'Consider the Risk' }, { title: 'Disclose the Interest' }, { title: 'Allow Assessment' }, { title: 'Follow the Guidance Provided' }] },
       { type: 'knowledge', id: 'gift-750', question: `You receive a gift worth R750 from an organisation that works with TFG Insure. What should you do?`, options: [
@@ -161,8 +282,13 @@ export const lessonContent = {
         ], images: [{ src: '/images/storyboard/image8.png', alt: 'Customer letter disclosing a perceived conflict of interest', caption: 'NOTE!' }] },
       ] },
       { type: 'section', title: 'What can we learn from this example?', paragraphs: [`This example demonstrates that conflict of interest management is an ongoing process.`, `Even when a conflict arises after a product has been sold or a Customer relationship has begun, TFG may take additional steps to manage the situation through transparency and appropriate disclosure.`, `The important point is not the specific wording of the letter, but understanding that actual, potential, and perceived conflicts of interest must be identified and managed whenever they arise.`] },
-      { type: 'reflection-options', title: 'Reflection Question', question: `Why did TFG provide this additional disclosure to Customers?`, options: [`Because conflict of interest disclosures are only required once a year.`, `Because new situations may create actual, potential, or perceived conflicts that need to be managed transparently.`, `Because all Customer communications must contain a Conflict of Interest statement.`, `Because the original disclosure was incorrect.`] },
-      { type: 'transition', paragraphs: [`You now understand which financial interests may be permissible, when disclosure is required, and why actual, potential, or perceived conflicts must be managed transparently.`, `Next, you will explore the disclosure mechanisms available at TFG Insure and the possible consequences of failing to make a required disclosure.`, { text: `Select “Next” to continue to Lesson 4: Disclosure Mechanisms and Consequences.`, bold: true }] },
+      { type: 'knowledge', id: 'ongoing-conflict-disclosure', label: 'Reflection Question', question: `Why did TFG provide this additional disclosure to Customers?`, options: [
+        `A. Because conflict of interest disclosures are only required once a year.`,
+        `B. Because new situations may create actual, potential, or perceived conflicts that need to be managed transparently.`,
+        `C. Because all Customer communications must contain a Conflict of Interest statement.`,
+        `D. Because the original disclosure was incorrect.`,
+      ], correctIndex: 1, correctFeedback: `Correct! New situations may create actual, potential or perceived conflicts of interest. TFG provided the additional disclosure to manage the situation transparently and keep Customers appropriately informed.`, incorrectFeedback: `Not quite. Conflict of interest management is an ongoing responsibility. When a new situation creates an actual, potential or perceived conflict, TFG may need to provide an additional disclosure to manage the conflict transparently and keep Customers appropriately informed.` },
+      { type: 'transition', paragraphs: [`You now understand which financial interests may be permissible, when disclosure is required, and why actual, potential, or perceived conflicts must be managed transparently.`, `Next, you will explore the disclosure mechanisms available at TFG Insure and the possible consequences of failing to make a required disclosure.`, { text: `Select “Next” to continue to Lesson 5: Disclosure Mechanisms and Consequences.`, bold: true }] },
     ],
   },
 
@@ -171,7 +297,7 @@ export const lessonContent = {
     blocks: [
       { type: 'section', paragraphs: [`So far, you've explored different types of financial interests and how they can affect decision-making.`, `Now, let's look at what you need to do when an interest needs to be disclosed. You'll learn about the disclosure mechanisms available to you, when they should be used, and the consequences of not making a required disclosure.`, `Understanding these requirements is an important part of meeting TFG Insure's regulatory standards and helping to ensure fair Customer outcomes.`, { text: `Select each tab to explore the disclosure mechanisms available at TFG Insure.`, bold: true }] },
       { type: 'tabs', id: 'disclosure-types', tabs: [
-        { label: 'Annual Disclosure', title: 'Annual Disclosure', bullets: [`TFG will be implementing an annual disclosure mechanism that will run concurrently with Fit and Proper disclosures.`, `This process will provide an opportunity for you to disclose any interest that may give rise to a conflict of interest on your part, and in turn potentially TFG.`, `Any disclosures requiring management or potential Customer disclosure will be dealt with appropriately from that point onwards.`, `This initiative will take place annually going forward, so keep an eye out for future disclosure requests.`] },
+        { label: 'Annual Disclosure', title: 'Annual Disclosure', bullets: [`TFG has an annual disclosure opportunity that runs concurrently with annual Fit and Proper declarations.`, `This process will provide an opportunity for you to disclose any interest that may give rise to a conflict of interest on your part, and in turn potentially TFG.`, `Any disclosures requiring management or potential Customer disclosure will be dealt with appropriately from that point onwards.`, `This initiative will take place annually going forward, so keep an eye out for future disclosure requests.`] },
         { label: 'Vantage', title: 'Vantage', intro: `Vantage is TFG's Governance, Risk and Compliance (GRC) platform and supports a range of assurance activities, including:`, bullets: [`Gift disclosures in terms of the Gifts Policy.`, `Disclosures in terms of the Disclosure of Interests Policy.`, `Disclosures in terms of the Conflict of Interest Management Policy.`, `The platform is designed to support and streamline the disclosure process.`, `If you require assistance when making a disclosure, you should reach out to Legal Compliance for support.`, `As with annual disclosures, any disclosures requiring management or potential Customer disclosure will be dealt with appropriately from that point onwards.`], image: { src: '/images/storyboard/image9.png', alt: 'Vantage governance, risk and compliance platform dashboard', caption: 'Vantage' } },
       ] },
       { type: 'section', title: 'Consequences of Non-Disclosure', statement: `Making a disclosure is an important part of meeting TFG Insure's regulatory requirements and maintaining trust with Customers, colleagues, and the business.`, paragraphs: [`The examples you've explored throughout this lesson highlight the importance of transparency and TFG Insure's commitment to managing conflicts of interest appropriately. As a licensed Financial Services Provider, TFG Insure is required to meet these standards, and you are expected to do the same.`, `Now, let's look at what can happen when a required disclosure is not made.`, `Review the process below to understand the potential consequences of failing to disclose a conflict of interest.`] },
@@ -180,7 +306,7 @@ export const lessonContent = {
       { type: 'statement', text: `Remember: When in doubt, disclose and seek guidance.` },
       { type: 'knowledge', id: 'disclosure-guidance', question: `You identify a potential conflict of interest but are unsure whether it needs to be disclosed. What should you do?`, options: [`Discuss the situation with a colleague and only disclose it if they agree it could be a conflict of interest.`, `Assess the situation yourself and only disclose it if you believe it is likely to affect your work.`, `Disclose the interest through the appropriate process and seek guidance if required.`, `Wait until the interest results in an actual conflict of interest before disclosing it.`], correctIndex: 2, correctFeedback: `Correct. If you identify an interest that may create an actual, potential, or perceived conflict of interest, you should disclose it through the appropriate process. You do not need to determine on your own whether a conflict exists. If you are unsure, seek guidance from Legal Compliance or your manager.`, incorrectFeedback: `Not quite. When an interest is identified, you should not rely on your own assessment, wait for a conflict to arise, or seek informal approval before taking action. The correct approach is to disclose the interest through the appropriate process so it can be assessed and managed. If you are unsure whether disclosure is required, seek guidance from Legal Compliance or your manager.` },
       { type: 'statement', title: 'Failing to disclose a conflict of interest can have serious consequences', text: `Failing to disclose a conflict of interest can have serious consequences, including an impact on your Fit and Proper status and, in some cases, debarment. In the next lesson, you'll explore what debarment is, why it occurs, and the impact it can have on your future career in financial services.`, tone: 'gold' },
-      { type: 'transition', paragraphs: [`You now understand how interests should be disclosed and why failing to make a required disclosure can have serious consequences. These consequences may include disciplinary action, an impact on your Fit and Proper status, and possible debarment.`, `Next, you will explore what debarment means, when it may apply, how the process works, and the impact it can have on your future career in financial services.`, { text: `Select “Next” to continue to Lesson 5: Debarment.`, bold: true }] },
+      { type: 'transition', paragraphs: [`You now understand how interests should be disclosed and why failing to make a required disclosure can have serious consequences. These consequences may include disciplinary action, an impact on your Fit and Proper status, and possible debarment.`, `Next, you will explore what debarment means, when it may apply, how the process works, and the impact it can have on your future career in financial services.`, { text: `Select “Next” to continue to Lesson 6: Debarment.`, bold: true }] },
     ],
   },
 
@@ -192,6 +318,9 @@ export const lessonContent = {
         { title: 'What is Debarment?', paragraphs: [`Debarment is a formal process whereby a Key Individual or Representative is prevented from rendering financial services in the future where they have either:`], bullets: [`Contravened one or more provisions of FAIS or its regulations.`, `No longer meet the Fit and Proper Requirements for Financial Services Providers.`, `TFG has a Debarment Policy that details:`, `TFG's obligations when initiating a debarment process.`, `Your rights if you are subject to a debarment process.`], paragraphsAfter: [`You are required to familiarise yourself with this policy and understand the consequences debarment may have on your future career in financial services.`] },
         { title: 'When are you at risk of Debarment?', paragraphs: [`You may be at risk of debarment if you contravene one or more provisions of FAIS and its regulations.`, { text: `Common examples include:`, bold: true }], bullets: [`Dishonesty, fraud, or misrepresentation.`, `Failure to disclose conflicts of interest.`, `Unauthorised rendering of financial services.`] },
         { title: 'Maintaining Fit and Proper Status', paragraphs: [`You may also be at risk of debarment if you fail to continuously meet the Fit and Proper requirements.`, { text: `These requirements include:`, bold: true }], bullets: [`Personal character qualities of honesty and integrity.`, `Good standing.`, `Competence.`, `Continuous Professional Development (CPD).`, `Operational ability.`, `Financial soundness.`], paragraphsAfter: [`TFG's Debarment Policy provides practical examples of what non-compliance with these requirements may look like.`] },
+      ] },
+      { type: 'resources', title: 'Debarment Policy', resources: [
+        { title: 'DEBARMENT POLICY', file: 'Debarment Policy May 2026.pdf', href: '/resources/Debarment%20Policy%20May%202026.pdf' },
       ] },
       { type: 'section', title: 'How Does the Debarment Process Work?', statement: `Debarment is a formal process and must be conducted fairly while ensuring compliance with regulatory requirements.`, paragraphs: [`Review the process below to understand how a debarment matter may be managed.`] },
       { type: 'process', steps: [

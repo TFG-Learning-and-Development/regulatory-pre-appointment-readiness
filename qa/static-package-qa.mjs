@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const target = path.resolve(process.argv[2] || 'dist');
 const lessons = [
   'why-this-course-matters',
+  'understanding-tfg-insure-and-your-regulatory-responsibilities',
   'appointment-readiness',
   'conflict-of-interest',
   'permissible-financial-interests',
