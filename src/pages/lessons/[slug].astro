@@ -15,5 +15,5 @@ const eyebrow = lesson.conclusion ? 'Course Conclusion' : `Lesson ${lesson.numbe
 ---
 <CourseLayout title={lesson.title} subtitle={content.intro} eyebrow={eyebrow} currentSlug={lesson.slug} completionMode={lesson.conclusion ? 'manual' : 'scroll'}>
   <LessonBlocks blocks={content.blocks} />
-  {!lesson.conclusion && <div data-lesson-complete-marker><LessonNavigation slug={lesson.slug} /></div>}
+  {lesson.conclusion ? <LessonNavigation slug={lesson.slug} /> : <div data-lesson-complete-marker><LessonNavigation slug={lesson.slug} /></div>}
 </CourseLayout>

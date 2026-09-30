@@ -6,7 +6,10 @@
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { completed: [] }; }
     catch { return { completed: [] }; }
   };
-  const writeState = (state) => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {} };
+  const writeState = (state) => {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+    window.TFGScorm?.saveState(state);
+  };
   const markComplete = (id) => {
     if (!id) return;
     const state = readState();
@@ -121,15 +124,6 @@
     });
   });
 
-  document.querySelector('[data-finish-course]')?.addEventListener('click', (event) => {
-    event.preventDefault();
-    const state = readState();
-    state.completed = [...lessonIds];
-    state.finished = true;
-    writeState(state);
-    window.location.href = '/';
-  });
-
   const current = document.documentElement.dataset.currentLesson;
   if (current && document.documentElement.dataset.completionMode !== 'manual') {
     const marker = document.querySelector('[data-lesson-complete-marker]');
@@ -138,5 +132,8 @@
       observer.observe(marker);
     } else if (marker) markComplete(current);
   }
+  const state = readState();
+  if (!current && window.TFGScorm?.resume()) return;
+  window.TFGScorm?.bookmark();
   renderProgress();
 })();

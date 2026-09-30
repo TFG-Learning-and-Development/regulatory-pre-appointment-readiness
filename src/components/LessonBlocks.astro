@@ -66,7 +66,5 @@ const { blocks = [] } = Astro.props;
     <section class="course-card section-card" style="border-top:5px solid var(--color-accent)"><p class="eyebrow">{block.title}</p><h2 style="margin-top:.7rem">{block.text}</h2></section>
   ) : block.type === 'transition' ? (
     <section class="course-card section-card">{block.paragraphs.map((paragraph, index) => <p class={index === 0 ? 'lead' : undefined}><RichText content={paragraph} /></p>)}</section>
-  ) : block.type === 'finish' ? (
-    <div><a class="button focus-ring" href="/" data-finish-course>Finish course</a></div>
   ) : null
 ))}

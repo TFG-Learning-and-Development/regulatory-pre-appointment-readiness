@@ -185,11 +185,16 @@ await navigate('/lessons/conflict-of-interest/');
 const policyLinks = await evaluate(`Promise.all([...document.querySelectorAll('.resource-card[href]')].map(async (link) => ({href:link.getAttribute('href'), status:(await fetch(link.href)).status})))`);
 
 await navigate('/lessons/course-conclusion/');
-const homeLoaded = once('Page.loadEventFired');
-await evaluate(`document.querySelector('[data-finish-course]').click()`);
-await homeLoaded;
-await new Promise((resolve) => setTimeout(resolve, 200));
-const finish = await evaluate(`({path:location.pathname, progress:document.querySelector('[data-home-progress]')?.textContent, state:JSON.parse(localStorage.getItem('tfg-regulatory-readiness-progress-v1'))})`);
+const conclusionControls = await evaluate(`(() => {
+  const footer=document.querySelector('.course-footer');
+  return {
+    finishAbsent:!document.querySelector('[data-finish-course]'),
+    exitAbsent:![...document.querySelectorAll('button,a')].some((node)=>node.textContent.trim()==='Exit course'),
+    previousLesson:document.querySelector('.lesson-footer a')?.textContent.trim(),
+    footerText:footer?.textContent.trim(),
+    footerInteractiveElements:footer?.querySelectorAll('a,button').length
+  };
+})()`);
 
-console.log(JSON.stringify({ viewports, flip, scrollComplete, tabs, mobileMenu, knowledge, accordion, interactionSweep, responsiveSweep, changeStructure, lightboxCount, lightboxOpen, closeRestoresFocus, escapeCloses, backdropCloses, scenarioLabelRemoved, vantage, policyLinks, finish, errors }, null, 2));
+console.log(JSON.stringify({ viewports, flip, scrollComplete, tabs, mobileMenu, knowledge, accordion, interactionSweep, responsiveSweep, changeStructure, lightboxCount, lightboxOpen, closeRestoresFocus, escapeCloses, backdropCloses, scenarioLabelRemoved, vantage, policyLinks, conclusionControls, errors }, null, 2));
 socket.close();

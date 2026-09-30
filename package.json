@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro build && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/rewrite-relative-paths.ps1",
+    "preview": "astro preview",
+    "qa:static": "node qa/static-package-qa.mjs dist",
+    "package:scorm": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-scorm.ps1"
   },
   "dependencies": {
     "astro": "^7.3.3"

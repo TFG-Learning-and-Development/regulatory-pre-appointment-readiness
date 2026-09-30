@@ -12,7 +12,7 @@ const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll', h
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Regulatory Pre-appointment Readiness e-learning course" />
     <link rel="icon" href="/images/brand/tfg-logo.svg" type="image/svg+xml" />
-    <title>{title} | Regulatory Pre-appointment Readiness</title>
+    <title>Content</title>
   </head>
   <body>
     <div class="shell">
@@ -20,9 +20,11 @@ const { title, subtitle, eyebrow, currentSlug = '', completionMode = 'scroll', h
       <main class="course-main">
         <LessonHero title={title} subtitle={subtitle} eyebrow={eyebrow} actionHref={heroActionHref} actionLabel={heroActionLabel} />
         <div class="container content-stack"><slot /></div>
+        <footer class="course-footer"><div class="container">Return to People Connect to continue</div></footer>
       </main>
     </div>
     <ImageLightbox />
+    <script is:inline src="/scripts/scorm.js"></script>
     <script is:inline src="/scripts/course.js"></script>
   </body>
 </html>

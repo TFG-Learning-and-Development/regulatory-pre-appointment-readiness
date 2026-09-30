@@ -13,4 +13,8 @@ export const lessons = [
   { number: 'Conclusion', slug: 'course-conclusion', title: 'Course Conclusion', conclusion: true },
 ];
 
-export const routeFor = (slug) => `/lessons/${slug}/`;
+export const routeFor = (slug, currentSlug = '') => currentSlug
+  ? `./${slug}.html`
+  : `./lessons/${slug}.html`;
+
+export const homeRouteFor = (currentSlug = '') => currentSlug ? '../index.html' : './index.html';

@@ -56,7 +56,7 @@ export const lessonContent = {
         `Let's get started.`,
       ] },
       { type: 'statement', text: `A Conflict of Interest is a situation in which TFG, a Key Individual or a Representative has an actual or potential interest that may influence objective performance, prevent fair and unbiased financial services, or prevent action in the Customer’s best interests.` },
-      { type: 'video', title: 'Video 1: Why Conflicts of Interest matter', text: `Watch the video to discover why conflicts of interest matter, the regulations that govern them, and your responsibilities in managing and disclosing potential conflicts.`, src: '/videos/why-conflicts-of-interest-matter.mp4' },
+      { type: 'video', title: 'Video 1: Why Conflicts of Interest matter', text: `Watch the video to discover why conflicts of interest matter, the regulations that govern them, and your responsibilities in managing and disclosing potential conflicts.`, src: '/videos/why-conflict-of-interest-matter.mp4' },
       { type: 'resources', title: 'Key policies to be aware of:', resources: [
         { title: 'DICLOSURE OF INTERESTS POLICY', file: 'DISCLOSURE OF INTERESTS POLICY.pdf', href: '/resources/DISCLOSURE%20OF%20INTERESTS%20POLICY.pdf' },
         { title: 'CONFLICT OF INTEREST', file: 'CONFLICT OF INTEREST MANAGEMENT POLICY.pdf', href: '/resources/CONFLICT%20OF%20INTEREST%20MANAGEMENT%20POLICY.pdf' },
@@ -223,7 +223,6 @@ export const lessonContent = {
       { type: 'reflection', title: 'Final Reflection', text: `How will you apply the principles of honesty, fairness, transparency, and accountability in your role to support both Customer outcomes and regulatory compliance?` },
       { type: 'section', title: 'Remember:', checklist: [`Know your responsibilities.`, `Maintain your Fit and Proper status.`, `Disclose interests when required.`, `Follow approved scripts, policies, and processes.`, `Ask questions when in doubt.`, `Always act in the best interests of the Customer.`] },
       { type: 'statement', text: `Thank you for completing the course and taking an important step towards becoming appointment ready at TFG Insure.` },
-      { type: 'finish' },
     ],
   },
 };
