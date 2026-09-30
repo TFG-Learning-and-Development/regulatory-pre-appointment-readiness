@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/rewrite-relative-paths.ps1",
+    "build": "astro build && node scripts/rewrite-relative-paths.mjs",
     "preview": "astro preview",
     "qa:static": "node qa/static-package-qa.mjs dist",
     "package:scorm": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-scorm.ps1"
