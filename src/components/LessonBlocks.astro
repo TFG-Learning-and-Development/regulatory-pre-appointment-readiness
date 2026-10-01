@@ -40,7 +40,7 @@ const { blocks = [] } = Astro.props;
   ) : block.type === 'resources' ? (
     <section class="course-card section-card"><h2>{block.title}</h2><div style="margin-top:1rem"><ResourceButtons resources={block.resources} /></div></section>
   ) : block.type === 'video' ? (
-    <section class="course-card section-card"><h2>{block.title}</h2><p class="lead">{block.text}</p><video class="video-player" controls preload="metadata" playsinline aria-label={block.title}><source src={block.src} type="video/mp4" />Your browser does not support HTML video.</video></section>
+    <section class="course-card section-card"><h2>{block.title}</h2>{block.text && <p class="lead">{block.text}</p>}<video class="video-player" controls preload="metadata" playsinline aria-label={block.title}><source src={block.src} type="video/mp4" />Your browser does not support HTML video.</video></section>
   ) : block.type === 'images' ? (
     <div class="image-pair">{block.images.map((image) => <figure class="media-frame" style="margin:0"><InstructionalImage src={image.src} alt={image.alt} /><figcaption class="media-caption">{image.caption}</figcaption></figure>)}</div>
   ) : block.type === 'image-example' ? (
@@ -57,7 +57,7 @@ const { blocks = [] } = Astro.props;
   ) : block.type === 'interaction-instruction' ? (
     <p class="interaction-instruction"><strong>{block.text}</strong></p>
   ) : block.type === 'comparison' ? (
-    <div class="comparison">{block.items.map((item) => <article><h3>{item.title}</h3>{item.paragraphs?.map((paragraph) => <p style="margin-top:.8rem"><RichText content={paragraph} /></p>)}{item.bullets && <ul>{item.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}{item.closing && <p style="margin-top:.8rem"><RichText content={item.closing} /></p>}</article>)}</div>
+    <div class="comparison">{block.items.map((item) => <article><h3>{item.title}</h3>{item.paragraphs?.map((paragraph) => <p style="margin-top:.8rem"><RichText content={paragraph} /></p>)}{item.bullets && <ul>{item.bullets.map((bullet) => <li><RichText content={bullet} /></li>)}</ul>}{item.closing && <p style="margin-top:.8rem"><RichText content={item.closing} /></p>}{item.statement && <div style="margin-top:.8rem"><StatementBlock text={item.statement.text} tone={item.statement.tone} /></div>}</article>)}</div>
   ) : block.type === 'tcf-outcomes' ? (
     <section class="tcf-outcomes" aria-label="The Six TCF Outcomes">
       {block.outcomes.map((outcome, index) => <article class="tcf-outcome"><span class="tcf-outcome-number" aria-hidden="true">{index + 1}</span><p>{outcome}</p></article>)}
